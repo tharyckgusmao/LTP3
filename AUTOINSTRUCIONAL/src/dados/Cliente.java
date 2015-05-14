@@ -2,14 +2,17 @@ package dados;
 
 import java.util.GregorianCalendar;
 
+import utilitarios.LtpUtil;
+
 public class Cliente {
-	private int codigo = 0;
+	private int codigo;
 	private String nome;
+	private String cpf;
 	private String telefone;
 	private String email;
 	private GregorianCalendar dataInclusao = new GregorianCalendar();
 	private GregorianCalendar dataUltAlteracao = new GregorianCalendar();
-	public Cliente(String nome, String telefone, String email,
+	public Cliente(String nome, String cpf, String telefone, String email,
 			GregorianCalendar dataInclusao, GregorianCalendar dataUltAlteracao) {
 		
 		codigo++;
@@ -19,6 +22,7 @@ public class Cliente {
 		this.email = email;
 		this.dataInclusao = dataInclusao;
 		this.dataUltAlteracao = dataUltAlteracao;
+		this.cpf = cpf;
 	}
 	
 	
@@ -52,15 +56,24 @@ public class Cliente {
 	public void setDataUltAlteracao(GregorianCalendar dataUltAlteracao) {
 		this.dataUltAlteracao = dataUltAlteracao;
 	}
-	
+	public String getCpf() {
+		return cpf;
+	}
+
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+
 	@Override
 	public String toString() {
-		return "Cliente [codigo=" + codigo + ", nome=" + nome + ", telefone="
-				+ telefone + ", email=" + email + ", dataInclusao="
-				+ dataInclusao + ", dataUltAlteracao=" + dataUltAlteracao + "]";
+		return "Cliente: \n  Codigo = " + codigo + " \n  Nome = " + nome + " \n  Telefone = "
+				+ telefone + " \n  Email = " + email + " \n  Data de inclusão = " + LtpUtil.formatarData( dataInclusao, "dd/MM/yyyy hh:mm") + "\n  Data de alteração = " + LtpUtil.formatarData( dataUltAlteracao, "dd/MM/yyyy hh:mm");
 	}
 	
 	
+		
 
 	
 }
